@@ -16,10 +16,8 @@ export default function PlantDetail({
 
   if (!plant) {
     return (
-      <main className="min-h-screen bg-[#F8F6F1] p-10">
-        <h1 className="text-3xl text-[#2F5D50]">
-          Pianta non trovata 🌱
-        </h1>
+      <main className="p-10">
+        Pianta non trovata 🌱
       </main>
     );
   }
@@ -27,81 +25,98 @@ export default function PlantDetail({
 
   return (
 
-    <main className="min-h-screen bg-[#F8F6F1] px-6 py-10">
+    <main className="min-h-screen bg-[#F8F6F1] p-6">
 
-      <section className="mx-auto max-w-4xl">
-
-        <div className="rounded-3xl bg-white p-8 shadow-sm">
+      <section className="mx-auto max-w-5xl">
 
 
-          <div
-            className="
-              flex
-              h-48
-              items-center
-              justify-center
-              rounded-2xl
-              bg-[#E8F0E5]
-              text-7xl
-            "
-          >
+        <article className="rounded-3xl bg-white p-8 shadow-sm">
+
+
+          <div className="text-7xl">
             {plant.icon}
           </div>
 
 
-          <h1
-            className="
-              mt-8
-              text-4xl
-              font-bold
-              text-[#2F5D50]
-            "
-          >
+          <h1 className="mt-5 text-4xl font-bold text-[#2F5D50]">
             {plant.name}
           </h1>
 
 
-          <p className="mt-2 italic text-gray-500">
+          <p className="italic text-gray-500">
             {plant.scientificName}
           </p>
 
 
-          <p className="mt-6 text-lg text-gray-700">
+          <p className="mt-6 text-gray-700">
             {plant.description}
           </p>
 
 
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
+          <div className="mt-8 grid gap-5 md:grid-cols-2">
 
 
-            <InfoBox
-              title="☀️ Luce"
-              text={plant.light}
-            />
+            <Info title="🌎 Origine" text={plant.origin}/>
 
+            <Info title="🌿 Famiglia" text={plant.family}/>
 
-            <InfoBox
-              title="💧 Acqua"
-              text={plant.water}
-            />
+            <Info title="☀️ Luce" text={plant.light}/>
 
+            <Info title="💧 Acqua" text={plant.water}/>
 
-            <InfoBox
-              title="⭐ Difficoltà"
-              text={plant.difficulty}
-            />
+            <Info title="🌡 Temperatura" text={plant.temperature}/>
 
+            <Info title="💨 Umidità" text={plant.humidity}/>
 
-            <InfoBox
-              title="🌱 Cura"
-              text="Segui la stagionalità e osserva la crescita."
-            />
+            <Info title="🪴 Terriccio" text={plant.soil}/>
+
+            <Info title="🌱 Concimazione" text={plant.fertilization}/>
 
 
           </div>
 
 
-        </div>
+          <section className="mt-10">
+
+            <h2 className="text-2xl font-bold text-[#2F5D50]">
+              Problemi comuni
+            </h2>
+
+
+            <ul className="mt-4 space-y-2">
+
+              {plant.problems.map((problem)=>(
+                <li key={problem}>
+                  ⚠️ {problem}
+                </li>
+              ))}
+
+            </ul>
+
+          </section>
+
+
+          <section className="mt-10">
+
+            <h2 className="text-2xl font-bold text-[#2F5D50]">
+              Rimedi tradizionali
+            </h2>
+
+
+            <ul className="mt-4 space-y-2">
+
+              {plant.remedies.map((remedy)=>(
+                <li key={remedy}>
+                  🌱 {remedy}
+                </li>
+              ))}
+
+            </ul>
+
+          </section>
+
+
+        </article>
 
 
       </section>
@@ -113,39 +128,28 @@ export default function PlantDetail({
 
 
 
-function InfoBox({
-  title,
-  text,
-}: {
-  title: string;
-  text: string;
-}) {
+function Info({
+ title,
+ text,
+}:{
+ title:string;
+ text:string;
+}){
 
-  return (
+ return(
 
-    <div
-      className="
-        rounded-xl
-        bg-[#F8F6F1]
-        p-5
-      "
-    >
+  <div className="rounded-xl bg-[#F8F6F1] p-5">
 
-      <h3
-        className="
-          font-semibold
-          text-[#2F5D50]
-        "
-      >
-        {title}
-      </h3>
+    <h3 className="font-semibold text-[#2F5D50]">
+      {title}
+    </h3>
 
-      <p className="mt-2 text-gray-600">
-        {text}
-      </p>
+    <p className="mt-2 text-gray-600">
+      {text}
+    </p>
 
-    </div>
+  </div>
 
-  );
+ );
 
 }
