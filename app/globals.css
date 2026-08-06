@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  --plant-green: #5E8C61;
+  --plant-dark: #2F5D50;
+  --plant-background: #F8F6F1;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  margin: 0;
+  background: var(--plant-background);
+  color: #2D2D2D;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
