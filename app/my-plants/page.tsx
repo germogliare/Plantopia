@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { plants } from "@/data/plants";
 
 
@@ -40,72 +41,83 @@ export default function MyPlants() {
         <div className="mt-8 grid gap-6 md:grid-cols-2">
 
 
-          {myPlants.map((myPlant)=>{
+          {myPlants.map((myPlant) => {
 
 
             const plant =
               plants.find(
-                (item)=>item.id === myPlant.id
+                (item) => item.id === myPlant.id
               );
 
 
-            if(!plant) return null;
+            if (!plant) return null;
 
 
             return (
 
-              <article
+              <Link
                 key={myPlant.nickname}
-                className="
-                  rounded-2xl
-                  bg-white
-                  p-6
-                  shadow-sm
-                "
+                href={`/my-plants/${myPlant.id}`}
+                className="block"
               >
 
-
-                <div className="text-5xl">
-                  {plant.icon}
-                </div>
-
-
-                <h2
+                <article
                   className="
-                    mt-4
-                    text-2xl
-                    font-semibold
-                    text-[#2F5D50]
+                    rounded-2xl
+                    bg-white
+                    p-6
+                    shadow-sm
+                    transition
+                    hover:shadow-md
                   "
                 >
-                  {myPlant.nickname}
-                </h2>
 
 
-                <p className="italic text-gray-500">
-                  {plant.name}
-                </p>
+                  <div className="text-5xl">
+                    {plant.icon}
+                  </div>
 
 
-                <div className="mt-4 space-y-2 text-gray-700">
+                  <h2
+                    className="
+                      mt-4
+                      text-2xl
+                      font-semibold
+                      text-[#2F5D50]
+                    "
+                  >
+                    {myPlant.nickname}
+                  </h2>
 
-                  <p>
-                    📅 Acquistata:
-                    {" "}
-                    {myPlant.acquired}
+
+                  <p className="italic text-gray-500">
+                    {plant.name}
                   </p>
 
 
-                  <p>
-                    📝 Note:
-                    {" "}
-                    {myPlant.notes}
-                  </p>
-
-                </div>
+                  <div className="mt-4 space-y-2 text-gray-700">
 
 
-              </article>
+                    <p>
+                      📅 Acquistata:
+                      {" "}
+                      {myPlant.acquired}
+                    </p>
+
+
+                    <p>
+                      📝 Note:
+                      {" "}
+                      {myPlant.notes}
+                    </p>
+
+
+                  </div>
+
+
+                </article>
+
+              </Link>
 
             );
 
