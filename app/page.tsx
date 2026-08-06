@@ -1,4 +1,6 @@
 import Navbar from "@/components/Navbar";
+import PlantCard from "@/components/PlantCard";
+import { plants } from "@/data/plants";
 export default function Home() {
   return (
   <>
@@ -51,20 +53,12 @@ export default function Home() {
 
           <div className="grid gap-6 md:grid-cols-3">
 
-            <PlantPreview
-              name="Monstera deliciosa"
-              description="Pianta tropicale amata per le sue grandi foglie."
-            />
-
-            <PlantPreview
-              name="Ficus lyrata"
-              description="Elegante pianta da interno con foglie grandi."
-            />
-
-            <PlantPreview
-              name="Pothos"
-              description="Resistente e perfetto anche per principianti."
-            />
+            {plants.map((plant) => (
+  <PlantCard
+    key={plant.id}
+    plant={plant}
+  />
+))}
 
           </div>
 
@@ -77,14 +71,7 @@ export default function Home() {
   );
 }
 
-
-function PlantPreview({
-  name,
-  description,
-}: {
-  name: string;
-  description: string;
-}) {
+{
 
   return (
     <article
