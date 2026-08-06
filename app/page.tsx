@@ -1,6 +1,10 @@
+import Navbar from "@/components/Navbar";
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#F8F6F1] px-6 py-10">
+  <>
+  <Navbar />
+
+  <main className="min-h-screen bg-[#F8F6F1] px-6 py-10">
       <section className="mx-auto max-w-5xl">
 
         <header className="mb-12">
@@ -68,6 +72,8 @@ export default function Home() {
 
       </section>
     </main>
+
+</>
   );
 }
 
