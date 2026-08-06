@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Plant } from "@/data/plants";
 
 
@@ -9,84 +10,96 @@ export default function PlantCard({
 
   return (
 
-    <article
-      className="
-        overflow-hidden
-        rounded-2xl
-        bg-white
-        p-5
-        shadow-sm
-        transition
-        hover:shadow-md
-      "
+    <Link
+      href={`/plants/${plant.id}`}
+      className="block"
     >
 
-      <div
+      <article
         className="
-          flex
-          h-32
-          items-center
-          justify-center
-          rounded-xl
-          bg-[#E8F0E5]
-          text-5xl
+          overflow-hidden
+          rounded-2xl
+          bg-white
+          p-5
+          shadow-sm
+          transition
+          hover:shadow-md
+          hover:-translate-y-1
         "
       >
-        {plant.icon}
-      </div>
+
+        <div
+          className="
+            flex
+            h-32
+            items-center
+            justify-center
+            rounded-xl
+            bg-[#E8F0E5]
+            text-5xl
+          "
+        >
+          {plant.icon}
+        </div>
 
 
-      <h3
-        className="
-          mt-4
-          text-xl
-          font-semibold
-          text-[#2F5D50]
-        "
-      >
-        {plant.name}
-      </h3>
+        <h3
+          className="
+            mt-4
+            text-xl
+            font-semibold
+            text-[#2F5D50]
+          "
+        >
+          {plant.name}
+        </h3>
 
 
-      <p
-        className="
-          text-sm
-          italic
-          text-gray-500
-        "
-      >
-        {plant.scientificName}
-      </p>
-
-
-      <p
-        className="
-          mt-3
-          text-gray-600
-        "
-      >
-        {plant.description}
-      </p>
-
-
-      <div className="mt-4 space-y-2 text-sm">
-
-        <p>
-          ☀️ {plant.light}
+        <p
+          className="
+            text-sm
+            italic
+            text-gray-500
+          "
+        >
+          {plant.scientificName}
         </p>
 
-        <p>
-          💧 {plant.water}
+
+        <p
+          className="
+            mt-3
+            text-gray-600
+          "
+        >
+          {plant.description}
         </p>
 
-        <p>
-          ⭐ Difficoltà: {plant.difficulty}
-        </p>
 
-      </div>
+        <div
+          className="
+            mt-4
+            flex
+            items-center
+            justify-between
+            text-sm
+          "
+        >
+
+          <span>
+            ☀️ {plant.light}
+          </span>
+
+          <span>
+            ⭐ {plant.difficulty}
+          </span>
+
+        </div>
 
 
-    </article>
+      </article>
+
+    </Link>
 
   );
 }
