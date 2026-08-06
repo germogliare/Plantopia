@@ -33,11 +33,11 @@ export default function Navbar() {
           </a>
 
           <a
-            href="#"
-            className="transition hover:text-[#5E8C61]"
-          >
-            Le mie piante
-          </a>
+ href="/my-plants"
+ className="transition hover:text-[#5E8C61]"
+>
+ Le mie piante
+</a>
 
           <a
             href="#"
