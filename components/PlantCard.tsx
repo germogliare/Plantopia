@@ -29,18 +29,28 @@ export default function PlantCard({
       >
 
         <div
-          className="
-            flex
-            h-32
-            items-center
-            justify-center
-            rounded-xl
-            bg-[#E8F0E5]
-            text-5xl
-          "
-        >
-          {plant.icon}
-        </div>
+  className="
+    flex
+    h-32
+    items-center
+    justify-center
+    overflow-hidden
+    rounded-xl
+    bg-[#E8F0E5]
+  "
+>
+
+  <img
+    src={plant.image}
+    alt={plant.name}
+    className="
+      h-full
+      w-full
+      object-cover
+    "
+  />
+
+</div>
 
 
         <h3
