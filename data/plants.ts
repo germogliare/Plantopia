@@ -7,6 +7,7 @@ export type Plant = {
   difficulty: string;
   water: string;
   icon: string;
+  image: string;
 };
 
 
@@ -24,8 +25,8 @@ export const plants: Plant[] = [
       "Facile",
     water:
       "Quando il terreno è asciutto nei primi centimetri",
-    icon:
-      "🌿",
+    icon: "🌿",
+image: "/plants/monstera.jpg",
   },
 
 
@@ -42,8 +43,8 @@ export const plants: Plant[] = [
       "Media",
     water:
       "Moderata, evitando ristagni",
-    icon:
-      "🍃",
+    icon: "🍃",
+image: "/plants/ficus.jpg",
   },
 
 
@@ -60,8 +61,8 @@ export const plants: Plant[] = [
       "Facile",
     water:
       "Lasciare asciugare leggermente il terreno",
-    icon:
-      "🌱",
+   icon: "🌱",
+image: "/plants/pothos.jpg",
   },
 
 ];
